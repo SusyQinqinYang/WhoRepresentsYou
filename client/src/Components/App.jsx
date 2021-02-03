@@ -17,17 +17,20 @@ const App = (props) => {
                 <div className='header'>
                     <h1 className='page-title'>Search Github Users</h1>
                     <div className='nav'>
-                        <NavLink to='/search' className='nav-home'>
-                            Home
+                        <NavLink to='/' className='nav-home'>
+                            Search Users
                         </NavLink>
                     </div>
                 </div>
 
                 <div className='home-page-bdy'>
                     <Switch>
+                        <Redirect 
+                        exact from="/"
+                        to="/search"/>
                         <Route exact path='/search' component={SearchHome}/>
                         <Redirect 
-                        exact from="/search/results/"
+                        exact from="/search/results"
                         to="/search/results/susyyang"/>
                         <Route path="/search/results/:user" component={SearchResults} />
                     </Switch>
