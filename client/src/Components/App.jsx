@@ -1,6 +1,6 @@
 import React from "react";
-import SearchHome from './SearchHome.jsx';
-import SearchResults from './SearchResults.jsx';
+import SearchHome from '../containers/SearchHomeContainer';
+import SearchResults from '../containers/SearchResultsContainer';
 import {
     HashRouter as Router,
     // BrowserRouter as Router,
