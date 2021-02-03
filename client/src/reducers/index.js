@@ -1,14 +1,6 @@
 import { combineReducers } from 'redux';
-import usersListReducer from './usersListReducer';
-import usersTotalCountReducer from './usersTotalCountReducer';
-// import { usersList, totalCount} from './usersListReducer.js';
+import usersListAndCountReducer from './usersListAndCountReducer';
 
 export default combineReducers({
-    usersList: usersListReducer,
-    totalCount: usersTotalCountReducer
+    usersListAndCount: usersListAndCountReducer
 });
-
-// export default combineReducers({
-//     usersList: usersList,
-//     totalCount: totalCount
-// });

@@ -3,8 +3,7 @@ import { connect } from 'react-redux';
 
 const mapStateToProps = (state) => {
     return {
-        usersList: state.usersList,
-        totalCount: state.totalCount
+        usersListAndCount: state.usersListAndCount
     }
 }
 

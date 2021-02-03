@@ -1,7 +1,7 @@
 import React from 'react';
 
-// const SearchResults = ({ usersList, totalCount}) => {
-const SearchResults = ({ usersList, totalCount}) => {
+const SearchResults = ({ usersListAndCount }) => {
+    const { usersList, totalCount } = usersListAndCount;
     console.log('totalCount', totalCount);
     console.log('usersList', usersList);
 
