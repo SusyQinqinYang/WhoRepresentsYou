@@ -41,5 +41,4 @@ This can be deployed using AWS.
 - **Susy(Qinqin) Yang**
 
 ## Demo
-Open [Github User Search](https://bit.ly/yourcocktailbar)
 ![alt text](http://g.recordit.co/drgzZVC9aE.gif)
