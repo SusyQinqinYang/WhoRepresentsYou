@@ -11,7 +11,7 @@ const SearchHome = ( { fetchUsersList }) => {
             <div className='title'>
                 <h1 className='search-page-title'>Github Search</h1>
             </div>
-            
+
             <form className='search-form'>
                 <input
                 type='text'
@@ -23,10 +23,7 @@ const SearchHome = ( { fetchUsersList }) => {
                 <Link to={`/search/results/${query}`}>
                     <button 
                     className='btn-search'
-                    onClick={(e) => {
-                        // e.preventDefault();
-                        fetchUsersList(query)
-                        }
+                    onClick={(e) => {fetchUsersList(query)}
                     }
                     >
                     Search
@@ -34,9 +31,6 @@ const SearchHome = ( { fetchUsersList }) => {
                 </Link>
             </form>
 
-            {/* <div>
-                {userList[0].avatar_url}
-            </div> */}
         </div>
     )
 }

@@ -20,9 +20,6 @@ const App = (props) => {
                         exact from="/"
                         to="/search"/>
                         <Route exact path='/search' component={SearchHome}/>
-                        <Redirect 
-                        exact from="/search/results"
-                        to="/search/results/susyyang"/>
                         <Route path="/search/results/:user" component={SearchResults} />
                     </Switch>
                 </div>

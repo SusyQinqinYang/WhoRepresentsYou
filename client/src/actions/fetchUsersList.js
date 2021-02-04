@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const fetchUsersList = (query) => {
+const fetchUsersList = (query, pageNumber) => {
     return (dispatch) => {
         return axios({
             method: 'get',
@@ -8,15 +8,15 @@ const fetchUsersList = (query) => {
             params: {
                 accept: 'application/vnd.github.v3+json',
                 q: query,
-                per_page: 50,
-                page: 10
+                per_page: 10,
+                page: pageNumber || 1
             }
         })
         .then( ( result ) => {
-            // console.log('result', result)
             let { data } = result;
             return dispatch({
                 type: 'FETCH_USERS_LIST',
+                query: query,
                 usersList: data.items,
                 totalCount: data.total_count
             })
