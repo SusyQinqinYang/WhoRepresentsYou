@@ -27,7 +27,7 @@ open localhost:3055
 
 ## Deployment
 
-This can be deployed using AWS.
+This has been deployed by using AWS.
 
 ## Built With
 
@@ -41,4 +41,5 @@ This can be deployed using AWS.
 - **Susy(Qinqin) Yang**
 
 ## Demo
+Open [Github User Search](http://3.141.7.238)
 ![alt text](http://g.recordit.co/drgzZVC9aE.gif)
