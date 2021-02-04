@@ -24,8 +24,7 @@ const SearchHome = ( { fetchUsersList }) => {
                     <button 
                     className='btn-search'
                     onClick={(e) => {fetchUsersList(query)}
-                    }
-                    >
+                    }>
                     Search
                     </button>
                 </Link>

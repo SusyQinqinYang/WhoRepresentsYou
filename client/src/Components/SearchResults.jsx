@@ -8,7 +8,6 @@ const SearchResults = ({ usersQueryAndListAndCount, fetchUsersList }) => {
     const [pageCount, setPageCount] = useState(0);
     const [pageNumber, setPageNumber] = useState(1);
 
-    // console.log('usersQueryAndListAndCount', usersQueryAndListAndCount);
     useEffect(() => {
         if (totalCount > 0) {
             setPageCount(Math.ceil(totalCount / 10));
@@ -38,22 +37,21 @@ const SearchResults = ({ usersQueryAndListAndCount, fetchUsersList }) => {
                 </div>
             </div>
 
-{/* <div style={{ display: "inline-block"}}> */}
-<div className='react-paginate'>
-            <ReactPaginate
-          previousLabel={'previous'}
-          nextLabel={'next'}
-          breakLabel={'...'}
-          breakClassName={'break-me'}
-          pageCount={pageCount}
-          marginPagesDisplayed={2}
-          pageRangeDisplayed={5}
-          onPageChange={handlePageClick}
-          containerClassName={'pagination'}
-          subContainerClassName={'pages pagination'}
-          activeClassName={'active'}
-        />
-        </div>
+            <div className='react-paginate'>
+                <ReactPaginate
+                    previousLabel={'previous'}
+                    nextLabel={'next'}
+                    breakLabel={'...'}
+                    breakClassName={'break-me'}
+                    pageCount={pageCount}
+                    marginPagesDisplayed={2}
+                    pageRangeDisplayed={5}
+                    onPageChange={handlePageClick}
+                    containerClassName={'pagination'}
+                    subContainerClassName={'pages pagination'}
+                    activeClassName={'active'}
+                />
+            </div>
 
         </div>
     )

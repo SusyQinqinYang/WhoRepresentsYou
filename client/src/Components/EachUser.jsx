@@ -14,7 +14,7 @@ const EachUser = ({ userInfo }) => {
             setUserOtherInfo(data)
         })
         .catch( (err) => {
-            console.log('Get user list API request err:', err)
+            console.log('Get user otehr info API request err:', err)
         })
       }, [userInfo]);
 
