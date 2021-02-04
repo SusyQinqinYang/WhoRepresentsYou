@@ -14,15 +14,6 @@ const App = (props) => {
     return (
         <Router >
             <div>
-                <div className='header'>
-                    <h1 className='page-title'>Search Github Users</h1>
-                    <div className='nav'>
-                        <NavLink to='/' className='nav-home'>
-                            Search Users
-                        </NavLink>
-                    </div>
-                </div>
-
                 <div className='home-page-bdy'>
                     <Switch>
                         <Redirect 

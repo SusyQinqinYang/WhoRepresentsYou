@@ -7,10 +7,14 @@ const fetchUsersList = (query) => {
             url: 'https://api.github.com/search/users',
             params: {
                 accept: 'application/vnd.github.v3+json',
-                q: query
+                q: query,
+                per_page: 50,
+                page: 10
             }
         })
-        .then( ( {data}) => {
+        .then( ( result ) => {
+            // console.log('result', result)
+            let { data } = result;
             return dispatch({
                 type: 'FETCH_USERS_LIST',
                 usersList: data.items,

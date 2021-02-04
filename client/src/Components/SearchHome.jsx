@@ -4,14 +4,14 @@ import axios from "axios";
 
 const SearchHome = ( { fetchUsersList }) => {
     let [query, setQuery] = useState('');
-    // let [userList, setUserList] = useState([{avatar_url: 'testing'}]);
-
-    // console.log('query',query);
-    // console.log('userList',userList);
 
     return (
         <div className='search-home'>
 
+            <div className='title'>
+                <h1 className='search-page-title'>Github Search</h1>
+            </div>
+            
             <form className='search-form'>
                 <input
                 type='text'
