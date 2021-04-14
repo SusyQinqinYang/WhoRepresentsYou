@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
-import axios from "axios";
 
 const SearchHome = ({ fetchRepOrSenList }) => {
 
     let [queryState, setQueryState] = useState('AL');
     let [queryRepOrSen, setQueryRepOrSen] = useState('rep');
-
 
     return (
         <div className='search-home'>
@@ -16,12 +14,6 @@ const SearchHome = ({ fetchRepOrSenList }) => {
             </div>
 
             <form className='search-form'>
-                {/* <input
-                type='text'
-                placeholder="Search by user's name"
-                className='search-input'
-                onChange={e => setQuery(e.target.value)}
-                /> */}
                 <label style={{display: "block"}}>
                     <span style={{podding: 30}}>Pick your state: </span>
                     <select value={queryState} onChange={e => setQueryState(e.target.value)}>
@@ -77,11 +69,11 @@ const SearchHome = ({ fetchRepOrSenList }) => {
                         <option value={'WY'}>Wyoming </option>
                     </select>
                 </label>
-                <label style={{display: "block"}}>
-                    <span style={{podding: 30}}>Pick your state: </span>
+                <label style={{display: "block", marginTop: 20}}>
+                    <span style={{podding: 30}}>Pick Rep or Sen: </span>
                     <select value={queryRepOrSen} onChange={e => setQueryRepOrSen(e.target.value)}>
-                        <option value={'rep'}>representatives</option>
-                        <option value={'sen'}>senators</option> 
+                        <option value={'rep'}>Representatives</option>
+                        <option value={'sen'}>Senators</option> 
                     </select>
                 </label>
                 <Link to={`/representativesOrSenators/${queryState}`}>
