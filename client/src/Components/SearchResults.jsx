@@ -1,69 +1,37 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
-import EachUser from './EachUser.jsx';
-import ReactPaginate from 'react-paginate';
+import EachRepsOrSen from './EachRepsOrSen.jsx';
 
-const SearchResults = ({ usersQueryAndListAndCount, fetchUsersList }) => {
-    const { usersList, totalCount, query } = usersQueryAndListAndCount;
-    const [pageCount, setPageCount] = useState(0);
-    const [pageNumber, setPageNumber] = useState(1);
-
+const SearchResults = ({ reps, sens, repFlag }) => {
+    console.log('reps, sens, repFlag', reps, sens, repFlag)
+    let [repsOrSenInfo, setRepsOrSenInfo] = useState('');
     useEffect(() => {
-        if (totalCount > 0) {
-            setPageCount(Math.ceil(totalCount / 10));
+        if (repFlag === true) {
+            setRepsOrSenInfo(reps);
+        } else {
+            setRepsOrSenInfo(sens);
         }
-    }, [usersQueryAndListAndCount]);
-
-    useEffect(()=> {
-            fetchUsersList(query, pageNumber)
-    },[pageNumber])
-    const handlePageClick = (selectedPageNum) => {
-        setPageNumber(selectedPageNum.selected + 1);
-    };
+    }, [reps, sens]);
 
     return (
         <div>
             <div className='result-header'>
-                <h3 className='result-page-title'>Github Users</h3>
-                <Link to='/' className='nav-home'>Search Users</Link>
+                <h3 className='result-page-title'>Who Represents You</h3>
+                <Link to='/' className='nav-home'>Back To Search</Link>
             </div>
 
-            <div className='users-list' style={{textAlign: 'center'}}>
-                <div style={{fontSize: 30}}>{totalCount} user results</div>
-                <div className='each-user'>
-                    {usersList.length > 0 ? usersList.map((userInfo) => {
-                        return <EachUser key={userInfo.id} userInfo={userInfo} />;
-                    }) : ''}
+            <div className='repsOrSens-list' style={{textAlign: 'center'}}>
+                <div style={{fontSize: 30}}>{repFlag ? 'Representatives List' : 'Senator List'}</div>
+                <div className='each-repsOrSen'>
+                       {repsOrSenInfo !== '' ?  repsOrSenInfo.map((personInfo, ind) => {
+                        return <EachRepsOrSen key={ind} personInfo={personInfo} />;
+                    }) : 'Loading The List'}
                 </div>
-            </div>
-
-            <div className='react-paginate'>
-                <ReactPaginate
-                    previousLabel={'previous'}
-                    nextLabel={'next'}
-                    breakLabel={'...'}
-                    breakClassName={'break-me'}
-                    pageCount={pageCount}
-                    marginPagesDisplayed={2}
-                    pageRangeDisplayed={5}
-                    onPageChange={handlePageClick}
-                    containerClassName={'pagination'}
-                    subContainerClassName={'pages pagination'}
-                    activeClassName={'active'}
-                />
             </div>
 
         </div>
     )
 }
 
-// const SearchResults = () => {
-
-//     return (
-//         <div>
-//         haha
-//         </div>
-//     )
-// }
 
 export default SearchResults;

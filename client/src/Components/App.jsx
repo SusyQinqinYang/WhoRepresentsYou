@@ -13,10 +13,11 @@ import {
 const App = (props) => {
     let [reps, setReps] = useState('');
     let [sens, setSens] = useState('');
-console.log('reps', reps)
-console.log('sens', sens)
+    let [repFlag, setRepFlag] = useState('');
+
     const fetchRepOrSenList = (queryState, queryRepOrSen) => {
         if (queryRepOrSen === 'rep') {
+            setRepFlag(true);
             axios({
                 method: 'get',
                 url: `/representatives/`,
@@ -25,13 +26,14 @@ console.log('sens', sens)
                 }
             })
             .then( ({ data }) => {
-                setReps(data)
+                setReps(data.results)
             })
             .catch( (err) => {
                 console.log('Get reps list API request err:', err)
             })
         } 
         if (queryRepOrSen === 'sen') {
+            setRepFlag(false);
             axios({
                 method: 'get',
                 url: `/senators/`,
@@ -40,7 +42,7 @@ console.log('sens', sens)
                 }
             })
             .then( ({ data }) => {
-                setSens(data)
+                setSens(data.results)
             })
             .catch( (err) => {
                 console.log('Get sens list API request err:', err)
@@ -61,7 +63,12 @@ console.log('sens', sens)
                             <SearchHome fetchRepOrSenList = {fetchRepOrSenList} isAuthed={true}/>
                           )}
                         />
-                        <Route path="/representativesOrSenators/:state" component={SearchResults} />
+                        <Route path="/representativesOrSenators/:state" 
+                        render={() => (
+                            <SearchResults reps = {reps} sens = {sens} repFlag = {repFlag} />
+                        )}
+                        
+                        />
                     </Switch>
                 </div>
 
