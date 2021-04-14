@@ -40,5 +40,5 @@ This has been deployed by using AWS.
 - **Susy(Qinqin) Yang**
 
 ## Demo
-Open [Who Represents You](http://3.141.7.238)
-![alt text](http://g.recordit.co/drgzZVC9aE.gif)
+**Who Represents You**
+![alt text](https://recordit.co/TejcaeinZv)
