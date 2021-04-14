@@ -52,26 +52,22 @@ const App = (props) => {
 
     return (
         <Router >
-            <div>
-                <div className='home-page-bdy'>
-                    <Switch>
-                        <Redirect 
-                        exact from="/"
-                        to="/search"/>
-                        <Route exact path='/search' 
-                        render={() => (
-                            <SearchHome fetchRepOrSenList = {fetchRepOrSenList} isAuthed={true}/>
-                          )}
-                        />
-                        <Route path="/representativesOrSenators/:state" 
-                        render={() => (
-                            <SearchResults reps = {reps} sens = {sens} repFlag = {repFlag} />
-                        )}
-                        
-                        />
-                    </Switch>
-                </div>
-
+            <div className='home-page-bdy'>
+                <Switch>
+                    <Redirect 
+                    exact from="/"
+                    to="/search"/>
+                    <Route exact path='/search' 
+                    render={() => (
+                        <SearchHome fetchRepOrSenList = {fetchRepOrSenList} isAuthed={true}/>
+                      )}
+                    />
+                    <Route path="/representativesOrSenators/:state" 
+                    render={() => (
+                        <SearchResults reps = {reps} sens = {sens} repFlag = {repFlag} isAuthed={true}/>
+                    )}
+                    />
+                </Switch>
             </div>
         </Router>
     )

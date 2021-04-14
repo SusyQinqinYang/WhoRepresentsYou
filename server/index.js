@@ -5,17 +5,16 @@ const app = express();
 const axios = require('axios');
 
 app.use(bodyParser.json());
-
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
 app.get('/representatives', (req, res) => {
-      axios({
-        method: 'get',
-        url: `http://whoismyrepresentative.com/getall_reps_bystate.php?state=${req.query.state}&output=json`,
-        headers: { 
-            'Access-Control-Allow-Origin' : '*',
-            'Content-Type': 'application/json'
-          }
+    axios({
+      method: 'get',
+      url: `http://whoismyrepresentative.com/getall_reps_bystate.php?state=${req.query.state}&output=json`,
+      headers: { 
+          'Access-Control-Allow-Origin' : '*',
+          'Content-Type': 'application/json'
+        }
     })
     .then( ({ data }) => {
         res.status(200).json(data);
@@ -24,7 +23,7 @@ app.get('/representatives', (req, res) => {
         console.log('get req axios error for reps', err);
         res.status(404).json(`Failed to get your state representatives' information`);
     })
-  });
+});
 
   app.get('/senators', (req, res) => {
       axios({
