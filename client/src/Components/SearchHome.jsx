@@ -4,13 +4,8 @@ import axios from "axios";
 
 const SearchHome = ({ fetchRepOrSenList }) => {
 
-    
-
     let [queryState, setQueryState] = useState('AL');
     let [queryRepOrSen, setQueryRepOrSen] = useState('rep');
-// console.log('queryState', queryState);
-// console.log('props', props)
-// console.log('fetchRepOrSenList', fetchRepOrSenList)
 
 
     return (
@@ -89,7 +84,7 @@ const SearchHome = ({ fetchRepOrSenList }) => {
                         <option value={'sen'}>senators</option> 
                     </select>
                 </label>
-                <Link to={`/representatives/${queryState}`}>
+                <Link to={`/representativesOrSenators/${queryState}`}>
                     <button 
                     className='btn-search'
                     onClick={(e) => {fetchRepOrSenList(queryState, queryRepOrSen)}

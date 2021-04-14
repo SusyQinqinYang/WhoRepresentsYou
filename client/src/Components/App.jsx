@@ -12,25 +12,40 @@ import {
 
 const App = (props) => {
     let [reps, setReps] = useState('');
+    let [sens, setSens] = useState('');
+console.log('reps', reps)
+console.log('sens', sens)
     const fetchRepOrSenList = (queryState, queryRepOrSen) => {
         if (queryRepOrSen === 'rep') {
             axios({
                 method: 'get',
-                url: `http://whoismyrepresentative.com/getall_reps_bystate.php?state=${queryState}&output=json`,
-                headers: { 
-                    'Access-Control-Allow-Origin' : '*',
-                    // 'Access-Control-Allow-Methods' : 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
-                    'Content-Type': 'application/json'
-                  }
+                url: `/representatives/`,
+                params: {
+                    state: queryState
+                }
             })
             .then( ({ data }) => {
-                console.log('data',data)
                 setReps(data)
             })
             .catch( (err) => {
                 console.log('Get reps list API request err:', err)
             })
         } 
+        if (queryRepOrSen === 'sen') {
+            axios({
+                method: 'get',
+                url: `/senators/`,
+                params: {
+                    state: queryState
+                }
+            })
+            .then( ({ data }) => {
+                setSens(data)
+            })
+            .catch( (err) => {
+                console.log('Get sens list API request err:', err)
+            })
+        }
       }
 
     return (
@@ -46,7 +61,7 @@ const App = (props) => {
                             <SearchHome fetchRepOrSenList = {fetchRepOrSenList} isAuthed={true}/>
                           )}
                         />
-                        <Route path="/representatives/:state" component={SearchResults} />
+                        <Route path="/representativesOrSenators/:state" component={SearchResults} />
                     </Switch>
                 </div>
 
