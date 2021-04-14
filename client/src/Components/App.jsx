@@ -1,9 +1,9 @@
 import React from "react";
-import SearchHome from '../containers/SearchHomeContainer';
-import SearchResults from '../containers/SearchResultsContainer';
+import SearchHome from './SearchHome.jsx';
+import SearchResults from './SearchResults.jsx';
 import {
-    HashRouter as Router,
-    // BrowserRouter as Router,
+    // HashRouter as Router,
+    BrowserRouter as Router,
     Switch,
     Route,
     Redirect
@@ -19,7 +19,7 @@ const App = (props) => {
                         exact from="/"
                         to="/search"/>
                         <Route exact path='/search' component={SearchHome}/>
-                        <Route path="/search/results/:user" component={SearchResults} />
+                        <Route path="/search/results/:RepOrSenatorInState" component={SearchResults} />
                     </Switch>
                 </div>
 
