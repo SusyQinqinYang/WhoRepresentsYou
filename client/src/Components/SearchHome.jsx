@@ -89,7 +89,7 @@ const SearchHome = ({ fetchRepOrSenList }) => {
                         <option value={'sen'}>senators</option> 
                     </select>
                 </label>
-                <Link to={`/search/results/${queryState}${queryRepOrSen}`}>
+                <Link to={`/representatives/${queryState}`}>
                     <button 
                     className='btn-search'
                     onClick={(e) => {fetchRepOrSenList(queryState, queryRepOrSen)}

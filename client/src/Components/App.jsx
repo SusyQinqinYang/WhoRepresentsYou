@@ -46,7 +46,7 @@ const App = (props) => {
                             <SearchHome fetchRepOrSenList = {fetchRepOrSenList} isAuthed={true}/>
                           )}
                         />
-                        <Route path="/search/results/:RepOrSenInState" component={SearchResults} />
+                        <Route path="/representatives/:state" component={SearchResults} />
                     </Switch>
                 </div>
 
