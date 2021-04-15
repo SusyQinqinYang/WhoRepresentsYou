@@ -41,4 +41,4 @@ This has been deployed by using AWS.
 
 ## Demo
 **Who Represents You**
-![alt text](https://recordit.co/eDhG5IOoz0)
+![alt text](http://g.recordit.co/xd8iPm8Erm.gif)
