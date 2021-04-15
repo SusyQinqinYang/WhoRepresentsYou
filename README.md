@@ -27,7 +27,7 @@ open localhost:3055
 
 ## Deployment
 
-This has been deployed by using AWS.
+This can be deployed by using AWS.
 
 ## Built With
 
